@@ -1,8 +1,7 @@
-
 #include "image.h"
 #include "imageOP.h"
-#include <stdint.h>
 #include <malloc.h>
+#include <stdint.h>
 
 struct image generate_pic(uint32_t height, uint32_t width){
     struct image img;

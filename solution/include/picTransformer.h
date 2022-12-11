@@ -4,8 +4,8 @@
 
 #ifndef IMAGE_TRANSFORMER_PICTRANSFORMER_H
 #define IMAGE_TRANSFORMER_PICTRANSFORMER_H
-#include <stdio.h>
 #include "image.h"
+#include <stdio.h>
 
 void read_pixels(FILE *src, struct image img, struct bmp_header header);
 

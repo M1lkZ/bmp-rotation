@@ -20,7 +20,14 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39a7f3a5-53c7-44c5-8639-903a69de8971" name="Changes" comment="init" />
+    <list default="true" id="39a7f3a5-53c7-44c5-8639-903a69de8971" name="Changes" comment="init">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution/include/imageOP.h" beforeDir="false" afterPath="$PROJECT_DIR$/solution/include/imageOP.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution/include/picTransformer.h" beforeDir="false" afterPath="$PROJECT_DIR$/solution/include/picTransformer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution/src/generators.c" beforeDir="false" afterPath="$PROJECT_DIR$/solution/src/generators.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution/src/imageOP.c" beforeDir="false" afterPath="$PROJECT_DIR$/solution/src/imageOP.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solution/src/picTransformer.c" beforeDir="false" afterPath="$PROJECT_DIR$/solution/src/picTransformer.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +132,7 @@
       <updated>1670686686852</updated>
       <workItem from="1670686688179" duration="20201000" />
       <workItem from="1670772010057" duration="4020000" />
-      <workItem from="1670776224600" duration="309000" />
+      <workItem from="1670776224600" duration="661000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670708442328</created>

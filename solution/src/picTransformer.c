@@ -1,8 +1,8 @@
-#include <stdlib.h>
+#include "image.h"
+#include "imageOP.h"
 #include <stdint.h>
 #include <stdio.h>
-#include "imageOP.h"
-#include "image.h"
+#include <stdlib.h>
 
 void read_pixels(FILE *src, struct image img, struct bmp_header header){
     size_t c = 0;

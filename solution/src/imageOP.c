@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "image.h"
+#include <stdio.h>
 
 struct bmp_header read_header(FILE *src){
     struct bmp_header header;
