@@ -22,7 +22,7 @@ struct __attribute__((packed)) bmp_header {
     uint32_t  biClrImportant;
 };
 
-struct pixel { uint8_t b, g, r; };
+struct __attribute__((packed)) pixel { uint8_t b, g, r; };
 
 struct image {
     uint64_t width, height;

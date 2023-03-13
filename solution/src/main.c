@@ -1,27 +1,41 @@
-#include "generators.h"
 #include "image.h"
 #include "imageOP.h"
 #include "picTransformer.h"
 
 
-int main( int argc, char** argv ) {
+int main(int argc, char** argv) {
     if (argc != 3){
-        fprintf(stderr, "Invalid arguments. Expected: path input.bmp output.bmp");
+        fprintf(stderr, "Invalid arguments. Expected: %s input.bmp output.bmp", argv[0]);
         return -1;
     }
     char* file = argv[1];
     char* rotated = argv[2];
+
     FILE *src = fopen(file,"rb");
-    struct bmp_header header = read_header(src);
-    struct image orig = generate_pic(header.biHeight, header.biWidth);
-    struct image rot = generate_pic(header.biWidth, header.biHeight);
-    read_pixels(src, orig, header);
+    if (!src){
+        fprintf(stderr, "Cannot open file: %s in read mode\n", argv[1]);
+        return -1;
+    }
+
+    struct image orig;
+    enum read_status read_status = from_bmp(src, &orig);
+    if(read_status != 0){
+        printf("Read error: %d", read_status);
+        return read_status;
+    }
     fclose(src);
 
-    transform(orig, rot);
-
     FILE *dest = fopen(rotated, "wb");
-    write_img(dest, rot, generate_header(rot));
+    if(!dest){
+        fprintf(stderr, "Cannot open file: %s in write mode\n", argv[2]);
+        return -1;
+    }
+    struct image rot = transform(&orig);
+    enum write_status write_status = to_bmp(dest, &rot);
+    if(write_status != 0){
+        printf("Write error: %d", write_status);
+        return -1;
+    }
     fclose(dest);
     free(orig.data);
     free(rot.data);

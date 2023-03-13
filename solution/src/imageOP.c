@@ -1,13 +1,18 @@
 #include "image.h"
+#include <stdbool.h>
 #include <stdio.h>
 
-struct bmp_header read_header(FILE *src){
-    struct bmp_header header;
-    fread(&header, sizeof(struct bmp_header), 1, src);
-    fseek(src, header.bOffBits, SEEK_SET);
-    return header;
+
+bool read_header(FILE * const src, struct bmp_header * const header){
+    if (fread(header, sizeof(struct bmp_header), 1, src)){
+        fseek(src, header->bOffBits, SEEK_SET);
+        return true;
+    }
+    return false;
 }
 
-int64_t get_padding(uint32_t width){
+
+
+int64_t get_padding(const uint32_t width){
     return (width % 4 == 0) ? 0 : 4 - (int64_t)((width * sizeof(struct pixel)) % 4);
 }

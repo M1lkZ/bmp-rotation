@@ -7,9 +7,26 @@
 #include "image.h"
 #include <stdio.h>
 
-void read_pixels(FILE *src, struct image img, struct bmp_header header);
 
-void write_img(FILE *dest, struct image img, struct bmp_header header);
+struct image transform(const struct image *orig);
 
-void transform(struct image orig, struct image rot);
+enum read_status  {
+    READ_OK = 0,
+    READ_INVALID_SIGNATURE,
+    READ_INVALID_BITS,
+    READ_INVALID_HEADER
+    /* коды других ошибок  */
+};
+
+enum read_status from_bmp( FILE* in, struct image* img );
+
+/*  serializer   */
+enum  write_status  {
+    WRITE_OK = 0,
+    WRITE_ERROR
+    /* коды других ошибок  */
+};
+
+enum write_status to_bmp( FILE* out, struct image const* img );
+
 #endif //IMAGE_TRANSFORMER_PICTRANSFORMER_H
